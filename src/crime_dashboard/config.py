@@ -11,7 +11,22 @@ PROCESSED_DATA_DIR = DATA_DIR / "processed"
 # Output for cleaned data
 CLEAN_CSV = PROCESSED_DATA_DIR / "crime_clean.csv"
 
+# column names expected in raw csv file (Police.uk)
+REQUIRED_COLUMNS = [
+    "Crime ID",
+    "Month",
+    "Reported by",
+    "Falls within",
+    "Longitude",
+    "Latitude",
+    "Location",
+    "LSOA code",
+    "LSOA name",
+    "Outcome type",
 
+
+]
+# used for map display
 CATEGORY_MAP = {
     "theft from the person": "Theft",
     "shoplifting": "Theft",
@@ -28,3 +43,5 @@ CATEGORY_MAP = {
     "anti-social behaviour": "ASB",
     "other crime": "Other",
 }
+
+
