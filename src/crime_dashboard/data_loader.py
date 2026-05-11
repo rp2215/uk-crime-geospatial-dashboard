@@ -11,7 +11,7 @@ def find_csv_files(raw_data_dir):
 # Read one csv file into dataframe
 def read_csv_file(file_path):
 
-    data_frame = pd.read_csv(file_path, low_memory=False)
+    data_frame = pd.read_csv(file_path,usecols=config.REQUIRED_COLUMNS, low_memory=False)
     data_frame["source_file"] = file_path.name # stores where each row came from
 
     return data_frame

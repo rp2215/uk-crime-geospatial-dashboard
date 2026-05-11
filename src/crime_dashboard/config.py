@@ -23,9 +23,8 @@ REQUIRED_COLUMNS = [
     "LSOA code",
     "LSOA name",
     "Outcome type",
-
-
 ]
+
 # used for map display
 CATEGORY_MAP = {
     "theft from the person": "Theft",

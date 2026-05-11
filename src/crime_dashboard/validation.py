@@ -1,5 +1,5 @@
 import pandas as pd
-from .import config
+from . import config
 
 def is_empty_dataframe(data_frame):
 
@@ -16,7 +16,7 @@ def find_missing_columns(data_frame):
 
     for column in config.REQUIRED_COLUMNS:
         
-        if column not in data_frame.column:
+        if column not in data_frame.columns:
             missing_columns.append(column)
 
     return missing_columns
