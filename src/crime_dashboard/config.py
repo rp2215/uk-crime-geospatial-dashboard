@@ -22,7 +22,7 @@ REQUIRED_COLUMNS = [
     "Location",
     "LSOA code",
     "LSOA name",
-    "Outcome type",
+    "Last outcome category",
 ]
 
 # used for map display
