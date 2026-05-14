@@ -11,6 +11,8 @@ PROCESSED_DATA_DIR = DATA_DIR / "processed"
 # Output for cleaned data
 CLEAN_CSV = PROCESSED_DATA_DIR / "crime_clean.csv"
 
+CLEAN_GEOJSON = PROCESSED_DATA_DIR / "crime_clean_geo.geojson"
+
 # column names expected in raw csv file (Police.uk)
 REQUIRED_COLUMNS = [
     "Crime ID",
