@@ -7,12 +7,17 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
+MAPS_DIR = PROJECT_ROOT / "maps"
 
 # Output for cleaned data
 CLEAN_CSV = PROCESSED_DATA_DIR / "crime_clean.csv"
 
+# output for cleaned geo data
 CLEAN_GEOJSON = PROCESSED_DATA_DIR / "crime_clean_geo.geojson"
 
+# output for generated maps
+CRIME_MAPS_HTML = MAPS_DIR / "crime_map.html"
+ 
 # column names expected in raw csv file (Police.uk)
 REQUIRED_COLUMNS = [
     "Crime ID",

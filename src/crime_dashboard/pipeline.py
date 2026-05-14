@@ -4,6 +4,7 @@ from .data_loader import read_raw_csvs
 from .validation import validate_raw_data
 from .cleaning import clean_data
 from .cleaning import save_cleaned_data
+from .geoprocessing import run_geoprocessing
 
 def run_pipeline():
 
@@ -28,6 +29,8 @@ def run_pipeline():
         return 
 
     save_cleaned_data(cleaned_data)
+
+    run_geoprocessing()
 
     print("Full pipeline complete")
 
