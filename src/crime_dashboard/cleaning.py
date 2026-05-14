@@ -49,7 +49,7 @@ def clean_coordinates(data_frame):
     cleaned_data["latitude"] = pd.to_numeric(cleaned_data["latitude"], errors="coerce")
     cleaned_data["longitude"] = pd.to_numeric(cleaned_data["longitude"], errors="coerce")    
 
-    # remove invalid corrdinates
+    # remove invalid corrdinates using filter
     valid_coordinates = (cleaned_data["latitude"].between(-90,90) & cleaned_data["longitude"].between(-180,180))
     cleaned_data = cleaned_data.loc[valid_coordinates].copy()
 
@@ -77,7 +77,7 @@ def clean_month_column(data_frame):
         print(f"Removed {removed:,} row(s) with invalid month values")
     
     cleaned_data["year"] = cleaned_data["month"].dt.year
-    cleaned_data["month_number"] = cleaned_data["month"].dt.moth
+    cleaned_data["month_number"] = cleaned_data["month"].dt.month
     cleaned_data["month_name"] = cleaned_data["month"].dt.month_name()
 
     # convert back to YYYY-MM (easier grouping later)
@@ -99,7 +99,7 @@ def clean_data(data_frame):
     cleaned_data = standardise_column_names(cleaned_data)
     cleaned_data = remove_duplicates(cleaned_data)
     cleaned_data = clean_coordinates(cleaned_data)
-    cleaned_data = clean_month_column(clean_data)
+    cleaned_data = clean_month_column(cleaned_data)
 
     print(f"Data cleaning complete. Final row(s): {len(cleaned_data):,}")
 
