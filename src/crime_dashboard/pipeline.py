@@ -5,6 +5,7 @@ from .validation import validate_raw_data
 from .cleaning import clean_data
 from .cleaning import save_cleaned_data
 from .geoprocessing import run_geoprocessing
+from .analytics import run_analytics
 
 def run_pipeline():
 
@@ -31,6 +32,8 @@ def run_pipeline():
     save_cleaned_data(cleaned_data)
 
     run_geoprocessing()
+
+    run_analytics()
 
     print("Full pipeline complete")
 

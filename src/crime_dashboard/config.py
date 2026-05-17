@@ -17,6 +17,14 @@ CLEAN_GEOJSON = PROCESSED_DATA_DIR / "crime_clean_geo.geojson"
 
 # output for generated maps
 CRIME_MAPS_HTML = MAPS_DIR / "crime_map.html"
+
+# Analytics output directory and files
+ANALYTICS_DIR = PROCESSED_DATA_DIR / "analytics"
+ANALYTICS_CATEGORY_CSV = ANALYTICS_DIR / "crimes_by_category.csv"
+ANALYTICS_MONTH_CSV = ANALYTICS_DIR / "crimes_by_month.csv"
+ANALYTICS_AREA_CSV = ANALYTICS_DIR / "crimes_by_area.csv"
+ANALYTICS_TOP_CRIME_PER_AREA_CSV = ANALYTICS_DIR / "top_crime_per_area.csv"
+ANALYTICS_SUMMARY_CSV = ANALYTICS_DIR / "summary.csv"
  
 # column names expected in raw csv file (Police.uk)
 REQUIRED_COLUMNS = [
@@ -29,6 +37,7 @@ REQUIRED_COLUMNS = [
     "Location",
     "LSOA code",
     "LSOA name",
+    "Crime type",
     "Last outcome category",
 ]
 

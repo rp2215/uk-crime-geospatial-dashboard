@@ -85,6 +85,20 @@ def clean_month_column(data_frame):
 
     return cleaned_data
 
+def standardise_crime_type(data_frame):
+
+    cleaned_data = data_frame.copy()
+
+    cleaned_data["crime_type_std"] = (
+        cleaned_data["crime_type"]
+        .str.lower()
+        .str.strip()
+        .map(config.CATEGORY_MAP)
+        .fillna("Other")
+    )
+
+    return cleaned_data
+
 def clean_data(data_frame):
 
     if data_frame.empty:
@@ -100,6 +114,7 @@ def clean_data(data_frame):
     cleaned_data = remove_duplicates(cleaned_data)
     cleaned_data = clean_coordinates(cleaned_data)
     cleaned_data = clean_month_column(cleaned_data)
+    cleaned_data = standardise_crime_type(cleaned_data)
 
     print(f"Data cleaning complete. Final row(s): {len(cleaned_data):,}")
 
