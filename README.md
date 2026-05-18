@@ -1,31 +1,62 @@
 # UK Crime Dashboard
 
-A python geospatial data project for loading, validating, cleaning, and eventually visualising UK crime data from Police.uk CSV files.
+A python geospatial data project for loading, processing, analysing, and visualising UK crime date from Police.uk CSV files.
 
 The long term goal of this project is to turn raw crime CSV files into a cleaned dataset with geospatial analysis outputs and an interactive crime dashboard that can be used to explore crime patterns by category, month, and area UK wide.
 
 ---
 
-## Current Features
+## Key Features
 
-### Raw CSV Loading
+### Data Loading
 
-The project can:
-
-- Search recursively through folders and sub folders to find and read CSV files using pandas
-- Load only required columns from raw datasets
-- Combine multiple CSV files into one DataFrame
-- Continue running if one file cannot be loaded
-- Print progress messages showing files found, loaded, skipped, and number of total rows loaded
+- Recursivley searches folders for CSV files
+- Loads only required columns to keep memory usage low
+- Combines multiple CSV file into a single DataFrame
+- Continue loading if one file fails, reporting any skipped files
+- Prints progress showing files found, loaded, skipped, and total rows
 
 ---
 
-## Raw Data Validation
+## Validation
 
-The project includes basic validation checks before data cleaning begins checking for things like missing required columns or empty datasets and displays clear validation messages at each stage to keep the user informed
+- Checks for required columns before processing begins
+- Rejects empty datasets early
+- Clear validation messages at each stage
 
 ---
 
+## Data Cleaning
+
+- Standardises column names to snake_case
+- Removes duplicate rows
+- Converts and validates lat/lon coordinates, dropping rows outside valid ranges
+- Parses month column into YYYY-MM format extracting year, month_number, and month_name
+- Maps raw crime types to standardised categories (e.g. shoplifting -> Theft)
+
+---
+
+## Geospatial Processing
+
+- Creates a GeoDataFrame from cleaned lat/lon coordinates using ESPG:4326
+- Saves output as a GeoJSON for use in mapping and future spatial analysis
+
+---
+
+## Analytics
+
+- Crime counts are broken down by category, month, area (LSOA boundaries), and responsing police force
+- Monthly totals and month by month changes
+- Highest crime rate areas
+- Highest crime categories in each area
+
+---
+
+## Interactive Map
+
+- Folium map with marker cluster showing crime type, month, and location popups
+
+---
 ## Planned Features
 
 Planned features include:
@@ -88,12 +119,15 @@ Planned features include:
 Current
 
 - Python
-- pandas - working with CSV data
+- pandas
+- GeoPandas
+- Folium
+- pytest
+- GitHub Actions
+
 
 Planned:
 
-- GeoPandas - add geospatial functionality to cleaned data
-- Folium or Leaflet - for interactive map
 - Matplotlib - data visualisation and analysis charts
 - FastAPI - backend API for dashboard
 - PostGIS - geospatial database

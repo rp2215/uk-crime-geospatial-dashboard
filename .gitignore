@@ -6,3 +6,4 @@ data/raw
 data/processed
 maps/
 .pytest_cache/
+src/api/__pycache__
